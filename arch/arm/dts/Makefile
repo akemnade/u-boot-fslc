@@ -930,7 +930,8 @@ endif
 
 dtb-$(CONFIG_MX6SL) += imx6sl-evk.dtb
 
-dtb-$(CONFIG_MX6SLL) += imx6sll-evk.dtb
+dtb-$(CONFIG_MX6SLL) += imx6sll-evk.dtb \
+	imx6sll-kobo-clarahd.dtb
 
 dtb-$(CONFIG_MX6SX) += \
 	imx6sx-sabreauto.dtb \

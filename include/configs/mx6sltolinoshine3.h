@@ -94,6 +94,11 @@
 
 #define CONFIG_MMCROOT			"/dev/mmcblk0p2"  /* USDHC1 */
 
+#define CONFIG_CMDLINE_TAG                      /* enable passing of ATAGs */
+#define CONFIG_SETUP_MEMORY_TAGS
+#define CONFIG_INITRD_TAG
+#define CONFIG_REVISION_TAG
+
 /* MMC Configs */
 #define CONFIG_SYS_FSL_ESDHC_ADDR	USDHC2_BASE_ADDR
 #define CONFIG_SYS_FSL_USDHC_NUM	3

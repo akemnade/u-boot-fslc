@@ -7,6 +7,8 @@
 #include <common.h>
 #include <command.h>
 #include <console.h>
+#include <mapmem.h>
+
 #include <mmc.h>
 #include <env.h>
 #include <blk.h>
@@ -93,4 +95,24 @@ U_BOOT_CMD(
 	kobohiddenread, 5, 0, do_kobohiddenread,
 	"read kobo hidden partitions",
 	"kobo <mmcnum> <addr> <blk> [lengthname]"
+);
+
+static int do_download_mode(struct cmd_tbl *cmdtp, int flag, int argc,
+                     char *const argv[])
+
+{
+	uint32_t *start = map_sysmem(0x20d8040, 8);
+	start[0] = 0x30;
+	start[1] = 0x10000000;
+	unmap_sysmem(start);
+
+	do_reset(NULL, 0, 0, NULL);
+
+	return 0;
+}
+
+U_BOOT_CMD(
+        download_mode, 1, 0,    do_download_mode,
+        "Go to mfg download mode",
+        ""
 );

@@ -297,14 +297,6 @@
 	pinctrl-0 = <&pinctrl_wifi_power>;
 };
 
-&reg_vdd1p1 {
-	vin-supply = <&dcdc2_reg>;
-};
-
-&reg_vdd2p5 {
-	vin-supply = <&dcdc2_reg>;
-};
-
 &reg_arm {
 	vin-supply = <&dcdc3_reg>;
 };

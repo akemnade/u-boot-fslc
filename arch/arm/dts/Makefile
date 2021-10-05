@@ -930,10 +930,12 @@ endif
 
 dtb-$(CONFIG_MX6SL) += imx6sl-evk.dtb \
 	imx6sl-tolino-shine3.dtb \
-	imx6sl-tolino-shine2hd.dtb
+	imx6sl-tolino-shine2hd.dtb \
+	imx6sl-tolino-vision5.dtb
 
 dtb-$(CONFIG_MX6SLL) += imx6sll-evk.dtb \
-	imx6sll-kobo-clarahd.dtb
+	imx6sll-kobo-clarahd.dtb \
+	imx6sll-kobo-librah2o.dtb
 
 dtb-$(CONFIG_MX6SX) += \
 	imx6sx-sabreauto.dtb \

@@ -1,0 +1,13 @@
+if TARGET_MX6ULLKOBONIA
+
+config SYS_BOARD
+	default "mx6ullnia"
+
+config SYS_VENDOR
+	default "kobo"
+
+config SYS_CONFIG_NAME
+	default "mx6ullnia"
+
+source "board/kobo/common/Kconfig"
+endif

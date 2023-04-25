@@ -400,6 +400,15 @@ config TARGET_MX6SLLKOBOCLARAHD
 	depends on MX6SLL
 	imply CMD_DM
 
+config TARGET_MX6ULLKOBONIA
+	bool "mx6ullnia"
+	select BOARD_LATE_INIT
+	select DM
+	select DM_THERMAL
+	select KOBO_COMMON
+	depends on MX6ULL
+	imply CMD_DM
+
 config TARGET_MX6SLLEVK
 	bool "mx6sll evk"
 	depends on MX6SLL
@@ -715,6 +724,7 @@ source "board/bosch/acc/Kconfig"
 source "board/grinn/liteboard/Kconfig"
 source "board/kobo/mx6sllclarahd/Kconfig"
 source "board/kobo/mx6sltolinoshine3/Kconfig"
+source "board/kobo/mx6ullnia/Kconfig"
 source "board/phytec/pcm058/Kconfig"
 source "board/phytec/pcl063/Kconfig"
 source "board/gateworks/gw_ventana/Kconfig"

@@ -32,7 +32,7 @@ if FASTBOOT
 
 config FASTBOOT_BUF_ADDR
 	hex "Define FASTBOOT buffer address"
-	default 0x82000000 if MX6SX || MX6SL || MX6UL || MX6SLL
+	default 0x82000000 if MX6SX || MX6SL || MX6UL || MX6SLL || MX6ULL
 	default 0x81000000 if ARCH_OMAP2PLUS
 	default 0x42000000 if ARCH_SUNXI && !MACH_SUN9I
 	default 0x22000000 if ARCH_SUNXI && MACH_SUN9I

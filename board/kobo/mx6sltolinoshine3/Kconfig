@@ -9,5 +9,8 @@ config SYS_VENDOR
 config SYS_CONFIG_NAME
 	default "mx6sltolinoshine3"
 
+config IMX_CONFIG
+	default "board/kobo/mx6sltolinoshine3/imximage.cfg"
+
 source "board/kobo/common/Kconfig"
 endif

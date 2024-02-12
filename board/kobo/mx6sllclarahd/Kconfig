@@ -9,5 +9,8 @@ config SYS_VENDOR
 config SYS_CONFIG_NAME
 	default "mx6sllclarahd"
 
+config IMX_CONFIG
+	default "board/kobo/mx6sllclarahd/imximage.cfg"
+
 source "board/kobo/common/Kconfig"
 endif

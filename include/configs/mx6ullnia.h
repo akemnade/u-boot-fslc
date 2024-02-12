@@ -34,7 +34,7 @@
 #include <config_distro_bootcmd.h>
 #endif
 
-#define CONFIG_EXTRA_ENV_SETTINGS \
+#define CFG_EXTRA_ENV_SETTINGS \
 	BOOTENV \
 	"console=ttymxc0\0" \
 	"fdt_addr_r=0x83000000\0" \

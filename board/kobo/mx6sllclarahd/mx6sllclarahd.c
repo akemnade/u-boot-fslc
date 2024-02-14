@@ -16,7 +16,9 @@
 #include <asm/mach-imx/boot_mode.h>
 #include <asm/io.h>
 #include <common.h>
+#include <command.h>
 #include <linux/sizes.h>
+#include <env.h>
 #include <mmc.h>
 #include <power/pmic.h>
 
@@ -97,3 +99,50 @@ int mmc_map_to_kernel_blk(int devno)
 {
 	return devno;
 }
+
+int do_detect_clara_rev(struct cmd_tbl *cmdtp, int flag, int argc,
+			char *const argv[])
+{
+	struct udevice *pmic = NULL;
+	int dcdc[5];
+	int i;
+
+	i2c_get_chip_for_busnum(2, 0x32, 1, &pmic);
+	if (!pmic) {
+		puts("cannot find PMIC\n");
+		return CMD_RET_FAILURE;
+	}
+
+	for(i = 0; i < 5; i++) {
+		dcdc[i] = dm_i2c_reg_read(pmic, 0x36 + i);
+		if (dcdc[i] < 0) {
+			puts("cannot read dcdc volts\n");
+			return CMD_RET_FAILURE;
+		}
+		dcdc[i] = dcdc[i] * 50 / 4 + 600; /* convert to mV */
+		printf("DCDC%d at %d mV\n", i + 1, dcdc[i]);
+	}
+
+	/* Rev A: 1200 (arm) 3300 1300 (soc) 1200 1800 */
+	if ((dcdc[0] < 1400) && (dcdc[1] == 3300) && (dcdc[2] < 1400) && (dcdc[3] <1400) && (dcdc[4] == 1800)) {
+		puts("rev A detected\n");
+		env_set("fdt_file", "imx6sll-kobo-clarahd.dtb");
+		return 0;
+	}
+
+	/* Rev B: 1100 1000 3300 1800 1100 */
+	if ((dcdc[0] < 1400) && (dcdc[1] < 1400) && (dcdc[2] == 3300) && (dcdc[3] == 1800) && (dcdc[4] < 1400)) {
+		puts("rev B detected\n");
+		env_set("fdt_file", "imx6sll-kobo-clarahd-b.dtb");
+		return 0;
+	}
+
+	puts("regulators do not match any pattern, please report!\n");
+	return CMD_RET_FAILURE;
+}
+
+U_BOOT_CMD(
+        detect_clara_rev, 1, 0,    do_detect_clara_rev,
+        "Detect Kobo Clara HD board revision",
+        ""
+);

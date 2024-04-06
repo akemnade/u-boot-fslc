@@ -126,14 +126,14 @@ int do_detect_clara_rev(struct cmd_tbl *cmdtp, int flag, int argc,
 	/* Rev A: 1200 (arm) 3300 1300 (soc) 1200 1800 */
 	if ((dcdc[0] < 1400) && (dcdc[1] == 3300) && (dcdc[2] < 1400) && (dcdc[3] <1400) && (dcdc[4] == 1800)) {
 		puts("rev A detected\n");
-		env_set("fdt_file", "imx6sll-kobo-clarahd.dtb");
+		env_set("fdtfile", "imx6sll-kobo-clarahd.dtb");
 		return 0;
 	}
 
 	/* Rev B: 1100 1000 3300 1800 1100 */
 	if ((dcdc[0] < 1400) && (dcdc[1] < 1400) && (dcdc[2] == 3300) && (dcdc[3] == 1800) && (dcdc[4] < 1400)) {
 		puts("rev B detected\n");
-		env_set("fdt_file", "imx6sll-kobo-clarahd-b.dtb");
+		env_set("fdtfile", "imx6sll-kobo-clarahd-b.dtb");
 		return 0;
 	}
 

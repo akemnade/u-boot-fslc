@@ -391,6 +391,15 @@ config TARGET_MX6SLTOLINOSHINE3
 	depends on MX6SL
 	imply CMD_DM
 
+config TARGET_MX6SLLKOBOCLARA2E
+	bool "mx6sllclara2e"
+	select BOARD_LATE_INIT
+	select DM
+	select DM_THERMAL
+	select KOBO_COMMON
+	depends on MX6SLL
+	imply CMD_DM
+
 config TARGET_MX6SLLKOBOCLARAHD
 	bool "mx6sllclarahd"
 	select BOARD_LATE_INIT
@@ -723,6 +732,7 @@ source "board/freescale/mx6ullevk/Kconfig"
 source "board/bosch/acc/Kconfig"
 source "board/grinn/liteboard/Kconfig"
 source "board/kobo/mx6sllclarahd/Kconfig"
+source "board/kobo/mx6sllclara2e/Kconfig"
 source "board/kobo/mx6sltolinoshine3/Kconfig"
 source "board/kobo/mx6ullnia/Kconfig"
 source "board/phytec/pcm058/Kconfig"

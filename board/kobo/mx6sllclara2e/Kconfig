@@ -1,0 +1,17 @@
+if TARGET_MX6SLLKOBOCLARA2E
+
+config SYS_BOARD
+	default "mx6sllclara2e"
+
+config SYS_VENDOR
+	default "kobo"
+
+config SYS_CONFIG_NAME
+	default "mx6sllclara2e"
+
+config IMX_CONFIG
+	default "board/kobo/mx6sllclara2e/imximage.cfg"
+
+source "board/kobo/common/Kconfig"
+
+endif

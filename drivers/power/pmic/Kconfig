@@ -100,6 +100,20 @@ config PMIC_AS3722
 	  interface and is designs to cover most of the power managementment
 	  required for a tablets or laptop.
 
+config DM_PMIC_BD71828
+	bool "Enable Driver Model for PMIC BD71828"
+	help
+	  This config enables implementation of driver-model pmic uclass features
+	  for PMIC BD71828. The driver implements read/write operations.
+
+config SPL_DM_PMIC_BD71828
+	bool "Enable Driver Model for PMIC BD71828 in SPL stage"
+	depends on SPL_DM_PMIC
+	help
+	  This config enables implementation of driver-model pmic uclass
+	  features for PMIC BD71828. The driver implements read/write
+	  operations.
+
 config DM_PMIC_BD71837
  	bool "Enable Driver Model for PMIC BD71837"
  	help

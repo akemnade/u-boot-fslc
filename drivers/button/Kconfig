@@ -27,4 +27,10 @@ config BUTTON_GPIO
 	  The GPIO driver must used driver model. Buttons are configured using
 	  the device tree.
 
+config BUTTON_BD71828
+	bool "Powerbutton BD71828"
+	depends on BUTTON
+	depends on DM_PMIC_BD71828
+	help
+	  Enable support for the power button of the BD71828 pmic.
 endmenu

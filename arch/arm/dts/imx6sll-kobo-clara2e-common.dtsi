@@ -25,13 +25,6 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_gpio_keys>;
 
-		key-power {
-			label = "Power";
-			gpios = <&gpio5 8 GPIO_ACTIVE_LOW>;
-			linux,code = <KEY_POWER>;
-			wakeup-source;
-		};
-
 		key-cover {
 			label = "Cover";
 			gpios = <&gpio4 23 GPIO_ACTIVE_LOW>;
@@ -112,8 +105,11 @@
 };
 
 &i2c3 {
-	pinctrl-names = "default";
+	pinctrl-names = "default", "gpio";
 	pinctrl-0 = <&pinctrl_i2c3>;
+	pinctrl-1 = <&pinctrl_i2c3_gpio>;
+	sda-gpios = <&gpio3 22 GPIO_ACTIVE_HIGH>;
+	scl-gpios = <&gpio3 21 GPIO_ACTIVE_HIGH>;
 	clock-frequency = <100000>;
 	status = "okay";
 
@@ -309,6 +305,13 @@
 		fsl,pins = <
 			MX6SLL_PAD_REF_CLK_24M__I2C3_SCL 0x4001f8b1
 			MX6SLL_PAD_REF_CLK_32K__I2C3_SDA 0x4001f8b1
+		>;
+	};
+
+	pinctrl_i2c3_gpio: i2c3grp-gpio {
+		fsl,pins = <
+			MX6SLL_PAD_REF_CLK_24M__GPIO3_IO21 0x4001f8b1
+			MX6SLL_PAD_REF_CLK_32K__GPIO3_IO22 0x4001f8b1
 		>;
 	};
 

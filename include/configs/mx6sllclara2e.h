@@ -40,6 +40,7 @@
 	"ramdisk_addr_r=0x83100000\0" \
 	"scriptaddr=0x87000000\0" \
 	"initrd_high=0xffffffff\0" \
+	"detect_clara2erev=gpio set 46; sleep 0.2 ; i2c dev 1; if i2c probe 18; then setenv fdtfile imx6sll-kobo-clara2e-b.dtb; else setenv fdtfile imx6sll-kobo-clara2e-a.dtb; fi; gpio clear 46\0" \
 	"fdt_file=imx6sll-kobo-clara2e.dtb\0" \
 	"fdtfile=imx6sll-kobo-clara2e-b.dtb\0"
 

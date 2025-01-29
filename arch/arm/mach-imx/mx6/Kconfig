@@ -383,6 +383,15 @@ config TARGET_MX6SLEVK
 	depends on MX6SL
 	select SUPPORT_SPL
 
+
+config TARGET_MX6SLTOLINOPAGE2
+	bool "mx6sltolinopage2"
+	select DM
+	select DM_THERMAL
+	select KOBO_COMMON
+	depends on MX6SL
+	imply CMD_DM
+
 config TARGET_MX6SLTOLINOSHINE3
 	bool "mx6sltolinoshine3"
 	select DM
@@ -734,6 +743,7 @@ source "board/grinn/liteboard/Kconfig"
 source "board/kobo/mx6sllclarahd/Kconfig"
 source "board/kobo/mx6sllclara2e/Kconfig"
 source "board/kobo/mx6sltolinoshine3/Kconfig"
+source "board/kobo/mx6sltolinopage2/Kconfig"
 source "board/kobo/mx6ullnia/Kconfig"
 source "board/phytec/pcm058/Kconfig"
 source "board/phytec/pcl063/Kconfig"

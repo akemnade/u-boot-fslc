@@ -930,6 +930,7 @@ endif
 
 dtb-$(CONFIG_MX6SL) += imx6sl-evk.dtb \
 	imx6sl-tolino-shine3.dtb \
+	imx6sl-tolino-page2.dtb \
 	imx6sl-tolino-shine2hd.dtb \
 	imx6sl-tolino-vision5.dtb
 

@@ -1,0 +1,16 @@
+if TARGET_MX6SLTOLINOPAGE2
+
+config SYS_BOARD
+	default "mx6sltolinopage2"
+
+config SYS_VENDOR
+	default "kobo"
+
+config SYS_CONFIG_NAME
+	default "mx6sltolinopage2"
+
+config IMX_CONFIG
+	default "board/kobo/mx6sltolinopage2/imximage.cfg"
+
+source "board/kobo/common/Kconfig"
+endif
